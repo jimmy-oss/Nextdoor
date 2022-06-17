@@ -1,11 +1,12 @@
- <!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
  <html lang="en">
  <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="/static/images/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"/>
   <title>𝒩𝑒𝓍𝓉𝒹𝑜𝑜𝓇</title>
  </head>
  <body>
@@ -15,7 +16,6 @@
       <div class="toggle"></div>
     </header>
     <video src="/static/explore.mp4"  muted loop autoplay></video>
-     
     <div class="overlay"></div>
     <div class="text">
       <h2>Never Stop</h2>
@@ -40,5 +40,6 @@
       <li><a href="#">Contacts</a></li>
     </ul>
   </div>
+  <script src="/static/js/main.js"></script>
  </body>
  </html>
