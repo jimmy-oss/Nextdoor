@@ -31,6 +31,12 @@
 text-decoration: none;
 color: black;
 }
+
+.image h3{
+  margin-top:2rem;
+  opacity: 1.1;
+  color: white;
+}
  
 .image{
 display: table-cell;
@@ -40,5 +46,14 @@ font-family: 'Bubblegum Sans', cursive;
 position: relative;
 z-index: 10;
 backface-visibility: hidden;
+}
+footer h3{
+  text-align: center; 
+  font-size: 28px;
+   font-family: cursive; 
+   margin-left:18rem;
+   margin-top:2rem;
+   opacity: 3;
+   color:white;
 }
  
