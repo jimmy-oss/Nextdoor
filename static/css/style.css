@@ -84,6 +84,7 @@
      mix-blend-mode: overlay;
      opacity: 0.8;
 }
+ 
 .text{
   position: relative;
   z-index: 10;

@@ -12,5 +12,12 @@ def index(request):
     #userprofile = Profile.objects.get(user=user_object)
 
     return render(request, 'index.html')
+
+def explore(request):
+   # user_object = User.objects.get(username=request.user.username)
+    #userprofile = Profile.objects.get(user=user_object)
+
+    return render(request, 'explore.html')
+ 
  
  

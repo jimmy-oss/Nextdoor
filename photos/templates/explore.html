@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/static/images/logo.png" type="image/x-icon">
+  <link href="{% static 'css/explore.css' %}" rel="stylesheet" type="text/css"/>
+  <title>𝐸𝓍𝓅𝓁🌸𝓇𝑒</title>
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+crossorigin="anonymous">    
+<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+ <section class="showcase"> 
+  <video src="/static/smoke-video.mp4" muted loop autoplay></video>
+  <div class="overlay"></div>
+  <p  class="text"><img src="/static/images/nextdoor.png" width="200px" ></p>
+  <div class="gallery"> 
+  <img src="/static/images/gallery.svg"  width="420" height="280" style="margin-left:25rem">
+</div>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Adding a search form  -->
+      <div class="col-sm-4 col-md-4 navbar-left" style="margin-left:40rem ;">
+
+        <form class="navbar-form" role="category" action="{% url 'explore' %}">
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="🔍   Search Travel" name="category"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
+            <a href="{% url 'admin:index' %}" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px;">Admin</a>
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <!-- search form end -->
+    </div>
+  </nav>
+  <div class="background"> 
+   <div class="container m-1">
+<div class="row">
+  <div class="col-md-3"><div class="card">
+   <div class="card-header" style="font-family:serif; font-size:20px">
+     Categories
+   </div>
+   <ul class="list-group list-group-flush">
+     <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}">All</a></li>
+     {%  for category in categories %}
+     <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
+     {% endfor %}
+     <a href="#" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px">Add Photo</a>
+   </ul>
+   </div>
+</div>
+  <div class="col-md-9">
+    <div class="row">
+   {% for photo in photos %}
+      <div class="col-md-4">
+       <div class="card my-2">
+         <img class="image-thumbail" src="{{photo.image.url}}" alt="Card image cap">
+         <div class="card-body">
+           <small style="font-family: 'Bubblegum Sans', cursive; font-size:20px">Category:{{photo.category.name}}</small>
+           <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+         </div>
+       </div>
+      </div>
+       {% empty %}
+       <div class="image"> 
+       <img src="/static/images/404.svg" width="420" height="280" ><h3 style="margin-top:2rem ; " class="text">Page Not Found😔</h3>
+      </div>
+       {% endfor %}
+      </div>
+      </div>
+  </div>
+  <footer>
+    <h3 style="text-align: center; font-size: 28px; font-family: cursive; margin-left:18rem;margin-top:2rem"> Build with💖&copy; Jimmy-oss</h3>
+    </footer>
+  </section>
+</body>
+</html>
