@@ -9,9 +9,6 @@ from itertools import chain
 
 @login_required(login_url='signin')
 def index(request):
-    #user_object = User.objects.get(username=request.user.username)
-    #userprofile = Profile.objects.get(user=user_object)
-
     return render(request, 'index.html')
 
 def signup(request):
@@ -106,6 +103,7 @@ def settings(request):
     return render(request, 'setting.html', {'user_profile': user_profile})
 
 def explore (request):
+       
        category = request.GET.get('category')
        if category == None:
             photos = Photo.objects.all()
@@ -116,6 +114,11 @@ def explore (request):
        context = {'categories':category,'photos':photos}
 
        return render(request, 'explore.html', context)
+    
+def explore(request):
+       user_object = User.objects.get(username=request.user.username)
+       user_profile = Profile.objects.get(user=user_object)
+       return render(request, 'explore.html',  {'user_profile': user_profile})
  
  
 
