@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-		<link href="/static/images/advengiss.svg" rel="icon" type="image/png" >
+    <link rel="shortcut icon" href="/static/images/logo.png" type="image/x-icon">
 	<title>𝓅𝓇𝑜𝒻𝒾𝓁𝑒 - {{user_profile.user.username}}</title>
   
     <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
@@ -21,7 +21,7 @@
 <div class="theme-layout" style="background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);">
 	</div>
 	<section>
-		<h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3" style="color: white; margin-left:5rem;"><a href="{% url 'explore' %}" class="bg-pink-500 pink-500 px-6 py-2 rounded-md shadow text-white" style="font-size:18px;font-family:serif">Go Back</a></h1>
+		<h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3" style="color: white; margin-left:5rem;"><a href="{% url 'explore' %}" class="bg-pink-500 pink-500 px-6 py-3 rounded-md shadow text-white" style="font-size:18px;font-family:serif">Go Back</a></h1>
 			<div class="feature-photo">
 			 <img src="https://joyofapple.com/wp-content/uploads/2018/08/Beach-Featured.jpg" alt="" width="854" height="580"style="margin-left:15rem"> 
 				<form action="/follow" method="POST">
@@ -41,10 +41,7 @@
 					<span style="color: white; font-size: 23px;"><b>{{user_followers}} followers</b></span>
 					{% endif %}
 
-
 					<span style="color: white; font-size: 23px;"><b>{{user_following}} following</b></span>
-
-			 
 
 					{% if user_object.username == user.username %}
 					<a href="/settings" data-ripple="" style="margin-right:-1rem; color:black;font-size:16px "> 𝖆𝖈𝖈𝖔𝖚𝖓𝖙 𝖘𝖊𝖙𝖙𝖎𝖓𝖌𝖘</a>
@@ -68,6 +65,15 @@
 								<ul>
 									<li class="admin-name">
 									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 27px;"><b>@{{user_profile.user.username}}</b></h5>
+									</li>
+                  <li class="admin-name">
+									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px;"><b>{{user_profile.email_address }}</b></h5>
+									</li>
+                  <li class="admin-name">
+									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px; margin-left:3rem"><b>{{user_profile.location }}</b></h5>
+									</li>
+                  <li class="admin-name">
+									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px; "><b>{{user_profile.neighbour_name}}</b></h5>
 									</li>
 								</ul>
 							</div>
