@@ -1,138 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/static/images/trophy.png" rel="icon" type="image/png" >
-  <title>𝓹𝓱𝓸𝓽𝓸 - 𝓪𝔀𝓪𝓻𝓭𝓼</title>
+  <link rel="shortcut icon" href="/static/images/logo.png" type="image/x-icon">
+  <title>𝓹𝓱𝓸𝓽𝓸 </title>
    <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
  crossorigin="anonymous">  
+ <link href="{% static 'css/photo.css' %}" rel="stylesheet" type="text/css"/>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
  <!--Custom Js--> 
- <script src="/static/main.js" defer></script> 
- <style>
-  .background{
-    background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
-  }
-  .skill-bars{
-    padding: 25px 30px;
-    width: 600px;
-    margin-left: 12rem;
-    border-radius: 10px;  
-    font-family: 'Bubblegum Sans', cursive;
-  }
-  .bar span{
-    color: white;
-    text-shadow: 1px 1px black;
-  }
-  .skill-bars .bar{
-    margin: 20px 0;
-  }
-  .skill-bars .bar:first-child{
-    margin-top: 0px;
-  }
-  .skill-bars .bar .info{
-    margin-bottom: 5px;
-  }
-  .skill-bars .bar .info span{
-    font-weight: 500;
-    font-size: 17px;
-    opacity: 0;
-    animation: showText 0.5s 1s linear forwards;
-  }
-  @keyframes showText {
-    100%{
-      opacity: 1;
-    }
-  }
-  .skill-bars .bar .progress-line{
-    height: 10px;
-    width: 100%;
-    background: #f0f0f0;
-    position: relative;
-    transform: scaleX(0);
-    transform-origin: left;
-    border-radius: 10px;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05),
-                0 1px rgba(255,255,255,0.8);
-    animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
-  }
-  @keyframes animate {
-    100%{
-      transform: scaleX(1);
-    }
-  }
-  .bar .progress-line span{
-    height: 100%;
-    position: absolute;
-    border-radius: 10px;
-    transform: scaleX(0);
-    transform-origin: left;
-    background: #6665ee;
-    animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
-  }
-  .bar .progress-line.design span{
-    width: 90%;
-  }
-  .bar .progress-line.usability span{
-    width: 70%;
-  }
-  .bar .progress-line.content span{
-    width: 85%;
-  }
-  .bar .progress-line.creativity span{
-    width: 60%;
-  }
-  .progress-line span::before{
-    position: absolute;
-    content: "";
-    top: -10px;
-    right: 0;
-    height: 0;
-    width: 0;
-    border: 7px solid transparent;
-    border-bottom-width: 0px;
-    border-right-width: 0px;
-    border-top-color: #000;
-    opacity: 0;
-    animation: showText2 0.5s 1.5s linear forwards;
-  }
-  .progress-line span::after{
-    position: absolute;
-    top: -28px;
-    right: 0;
-    font-weight: 500;
-    background: #000;
-    color: #fff;
-    padding: 1px 8px;
-    font-size: 12px;
-    border-radius: 3px;
-    opacity: 0;
-    animation: showText2 0.5s 1.5s linear forwards;
-  }
-  @keyframes showText2 {
-    100%{
-      opacity: 1;
-    }
-  }
-  .progress-line.design span::after{
-    content: "9.27";
-  }
-  .progress-line.usability span::after{
-    content: "7.50";
-  }
-  .progress-line.content span::after{
-    content: "8.72";
-  }
-  .progress-line.creativity span::after{
-    content: "6.93";
-  }
- 
- </style>
+ <script src="/static/assets/js/link.js" defer></script> 
 </head>
 <div class="background"> 
 <body class="m-2" style="background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);">
@@ -146,72 +29,41 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
           <div class="skill-bars">
             <div class="bar">
               <div class="info">
-                <span style="font-size: 18px;">Design</span>
+                <span style="font-size: 18px;">Booking Services Are Fast</span>
               </div>
-              <div class="progress-line design">
+              <div class="progress-line services">
                 <span></span>
               </div>
             </div>
             <div class="bar">
               <div class="info">
-                <span style="font-size: 18px;">Usability</span>
+                <span style="font-size: 18px;">Fast & Reliable Services</span>
               </div>
-              <div class="progress-line usability">
+              <div class="progress-line fast">
                 <span></span>
               </div>
             </div>
             <div class="bar">
               <div class="info">
-                <span style="font-size: 18px;">Content</span>
+                <span style="font-size: 18px;">Don’t take too long to respond</span>
               </div>
-              <div class="progress-line content">
+              <div class="progress-line response">
                 <span></span>
               </div>
             </div>
             <div class="bar">
               <div class="info">
-                <span style="font-size: 18px;">Creativity</span>
+                <span style="font-size: 18px;">Security is Effective</span>
               </div>
-              <div class="progress-line creativity">
+              <div class="progress-line security">
                 <span></span>
               </div>
             </div>
           <p style="font-family: 'Berkshire Swash', cursive; font-size:20px;margin-top:2rem;text-align: center; margin-right:-10rem">{{photo.description}}</p>
-          <p style="font-family: 'Berkshire Swash', cursive; font-size:20px;margin-top:2rem;text-align: center; margin-right:4rem"><img src="/static/images/github.svg" width="50px" height="50px">Github Link</p>
-          <button class="btn btn-dark copy-btn" style="font-family:serif; font-size:18px;margin-left:22rem;margin-top:-7.2rem;" data-gallery="{{photo.submission_url}}" >Copy</button>
-          <!--Reviews-->
-          <div class="col-md-6">
-            <h3 class="my-3">Reviews -8.5/10 <i class="fa fa-star text-warning"></i> 
-          <button type="button" data-toggle="modal" data-target="#categoryReview" class="btn btn-warning btn-sm">Add Review</button></h3>
-          <!-- Category Review -->
-<div class="modal fade" id="categoryReview" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <form method='POST' action="" enctype="multipart/form-data">
-          {% csrf_token %}
-        <h5 class="modal-title" id="categoryModalLabel">Project Review</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-left:25rem; background:white; border: 1px solid black; opacity: 0.6;">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <table class="table table-bordered">
-          {{form.as_table}}
-          <tr>
-            <td colspan="2">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<!-- Category Review End -->
-
+          <p style="font-family: 'Berkshire Swash', cursive; font-size:20px;margin-top:2rem;text-align: center; margin-right:4rem"><img src="/static/images/mail.svg" width="50px" height="50px">Email Address Link</p>
+          <button class="btn btn-dark copy-btn" style="font-family:serif; font-size:18px;margin-left:22rem;margin-top:-7.2rem;" data-gallery="{{photo.email_address}}" >Copy</button>
+   
+        
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
