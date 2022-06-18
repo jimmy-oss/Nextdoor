@@ -168,8 +168,8 @@ def addPhoto (request):
 def profile(request, pk):
     user_object = User.objects.get(username=pk)
     user_profile = Profile.objects.get(user=user_object)
-    #user_posts = Photo.objects.filter(user=pk)
-    #user_post_length = len(user_posts)
+    user_posts = Photo.objects.filter(user=pk)
+    user_post_length = len(user_posts)
 
     follower = request.user.username
     user = pk
@@ -186,8 +186,8 @@ def profile(request, pk):
     context = {
         'user_object': user_object,
         'user_profile': user_profile,
-       # 'user_posts': user_posts,
-       # 'user_post_length': user_post_length,
+        'user_posts': user_posts,
+        'user_post_length': user_post_length,
         'button_text': button_text,
         'user_followers': user_followers,
         'user_following': user_following,
