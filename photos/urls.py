@@ -6,6 +6,9 @@ urlpatterns = [
     path('', views.index,name='index'),
     path('explore',views.explore,name='explore'),
     path('signup',views.signup, name='signup'),
+    path('signin',views.signin, name='signin'),
+    path('settings',views.settings, name='settings'),
+    path('logout',views.logout, name='logout'),
     #path('settings',views.settings, name='settings'),
    
     #path('photo/<str:pk>/',views.viewPhoto, name='photo'),
@@ -14,5 +17,5 @@ urlpatterns = [
   #  path('profile/<str:pk>',views.profile, name='profile'),
   
   #  path('signin',views.signin, name='signin'),
-  #  path('logout',views.logout, name='logout'),
+  
 ]
