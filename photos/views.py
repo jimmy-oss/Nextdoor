@@ -110,8 +110,10 @@ def settings(request):
         return redirect('settings')
     return render(request, 'setting.html', {'user_profile': user_profile})
 
-def explore (request):
-       
+
+def explore(request):
+       user_object = User.objects.get(username=request.user.username)
+       user_profile = Profile.objects.get(user=user_object)
        category = request.GET.get('category')
        if category == None:
             photos = Photo.objects.all()
@@ -119,14 +121,11 @@ def explore (request):
            photos = Photo.objects.filter(category__name = category)
            
        category = Category.objects.all()
-       context = {'categories':category,'photos':photos}
+       context = {'categories':category,'photos':photos,'user_profile': user_profile}
 
        return render(request, 'explore.html', context)
-    
-def explore(request):
-       user_object = User.objects.get(username=request.user.username)
-       user_profile = Profile.objects.get(user=user_object)
-       return render(request, 'explore.html',  {'user_profile': user_profile})
+      
+      
 
 @login_required(login_url='signin')
 def viewPhoto (request, pk):
