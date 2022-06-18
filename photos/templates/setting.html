@@ -31,7 +31,7 @@
                     <div class="col-span-2">
                         <label for=""> Profile Image</label>
                         <img width="100" height="100" src="{{user_profile.profileimg.url}}" />
-                        <input type="file" name="image" value="" class="shadow-none bg-gray-100">
+                        <input type="file" name="image" value="" class="shadow-none bg-gray-80">
                     </div>
                     <div class="col-span-2">
                         <label for="about">Bio</label>  
@@ -42,9 +42,22 @@
                         <textarea type="about" name="email_address"  class="shadow-none bg-gray-100"style="border: 1px solid #d3d5d8 !important; ">{{user_profile.email_address}}</textarea>
                     </div> 
                     <div class="col-span-2">
+                      <label for="about">Emergency Contacts</label>  
+                      <select id="phone_number" name="phone_number" type="about" class="shadow-none bg-gray-100"style="border: 1px solid #d3d5d8 !important;" >
+                        <option value="townhead health centre">Kenyatta National Hospital : +254 20 2726300</option>
+                        <option value="aga khan health centre">Aga Khan Health Centre :  +254 111 011888</option>
+                        <option value="karen police station">Karen Police Station : +2542227411</option>
+                        <option value="parklands police station">Parklands Police Station : +2542447411</option>
+                      </select>
+                  </div> 
+                    <div class="col-span-2">
                         <label for=""> Location</label>
                         <input type="text" name="location" value="{{user_profile.location}}" class="shadow-none bg-gray-100" style="border: 1px solid #d3d5d8 !important; ">
                     </div>
+                    <div class="col-span-2">
+                      <label for=""> Neighbourhood Name</label>
+                      <input type="text" name="neighbour_name" value="{{user_profile.neighbour_name}}" class="shadow-none bg-gray-100" style="border: 1px solid #d3d5d8 !important; ">
+                  </div>
                </div> 
                <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">
                    <button class="p-2 px-4 rounded bg-gray-50 text-red-500"> <a href="/">Cancel</a> </button>

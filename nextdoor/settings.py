@@ -45,6 +45,7 @@ INSTALLED_APPS = [
      'cloudinary',
      'bootstrap5',
      'rest_framework',
+     'phone_field',
 ]
 
 MIDDLEWARE = [

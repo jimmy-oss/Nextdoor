@@ -1,6 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
+from phone_field import PhoneField
 import uuid
 from datetime import datetime
 
@@ -19,7 +20,10 @@ class Profile(models.Model):
     id_user = models.IntegerField()
     bio = models.TextField(blank=True)
     profileimg = models.ImageField(upload_to='profile_images', default='blank-profile-picture.png')
+    phone_number = PhoneField(blank=True, help_text=' Emergency Contacts')
+    email_address = models.EmailField(max_length=150,blank=True)
     location = models.CharField(max_length=100, blank=True)
+    neighbour_name = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.user.username

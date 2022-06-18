@@ -80,23 +80,31 @@ def settings(request):
             image = user_profile.profileimg
             bio = request.POST['bio']
             email_address = request.POST['email_address']
+            phone_number = request.POST['phone_number']
             location = request.POST['location']
+            neighbour_name = request.POST['neighbour_name']
 
             user_profile.profileimg = image
             user_profile.bio = bio
             user_profile.location = location
             user_profile.email_address = email_address
+            user_profile.neighbour_name = neighbour_name
+            user_profile.phone_number = phone_number
             user_profile.save()
         if request.FILES.get('image') != None:
             image = request.FILES.get('image')
             bio = request.POST['bio']
             email_address = request.POST['email_address']
+            phone_number = request.POST['phone_number']
             location = request.POST['location']
+            neighbour_name = request.POST['neighbour_name']
 
             user_profile.profileimg = image
             user_profile.bio = bio
             user_profile.location = location
             user_profile.email_address = email_address
+            user_profile.phone_number = phone_number
+            user_profile.neighbour_name = neighbour_name
             user_profile.save()
         
         return redirect('settings')
