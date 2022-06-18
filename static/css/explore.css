@@ -12,11 +12,7 @@ text-decoration: none;
 color: black;
 }
 
-.image h3{
-  margin-top:2rem;
-  opacity: 1;
-  color: white;
-}
+ 
  
 .image{
 display: table-cell;
@@ -29,7 +25,10 @@ z-index: 10;
 backface-visibility: hidden;
 }
 .image h3{
-   margin-right: 28rem;
+  margin-top: 2rem;
+  color: white;
+  margin-right: 15rem;
+  text-align: center;
   font-family: 'Bubblegum Sans', cursive;
 }
 footer h3{

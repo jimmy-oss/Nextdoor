@@ -2,91 +2,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link href="{% static 'css/explore.css' %}" rel="stylesheet" type="text/css"/>
-   <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" href="/static/images/logo.png" type="image/x-icon">
   <title>𝐸𝓍𝓅𝓁🌸𝓇𝑒</title>
-  <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" 
-integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
-crossorigin="anonymous">    
-<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
-</head>
+   <!-- CSS only -->
+   <link href="{% static 'css/explore.css' %}" rel="stylesheet" type="text/css"/>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+   integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+   crossorigin="anonymous">    
+   <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
 <body class="m-5">
-  <a href="{% url 'index' %}" class="btn btn-dark my-3"  style="font-family:serif; font-size:18px;">Go Back</a>
-  <div class="gallery"> 
-  <img src="/static/images/business.svg"  width="500" height="280" style="margin-left:25rem; margin-top:-5rem;">
-  <p style="font-size: 35px; color:rgb(28, 28, 28);margin-left:28rem;font-family: 'Bubblegum Sans', cursive;">Neighbourhood Business</p>
-</div>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <!-- Adding a search form  -->
-      <div class="col-sm-4 col-md-4 navbar-left" style="margin-left:40rem ;">
-        <form class="navbar-form" role="category" action="{% url 'explore' %}">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="🔍   Search laundry" name="category"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
-            <a href="{% url 'admin:index' %}" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px;">Admin</a>
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+    <header>
+        <div class="header_inner">
+            <form action="/search" method="POST">
+            {% csrf_token %}
+                  <div class="left-side">
+                    <input type="text" name="username" placeholder="Search for username..">&nbsp; &nbsp;
+                    <button type="submit"><i class="fa fa-search fa-1x"></i></button>
             </div>
+            </form>
+            <div class="right-side lg:pr-4">
+              <a href="#"
+              class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white" style="text-decoration:none;">
+              <ion-icon name="add-circle" class="-mb-1
+               mr-1 opacity-90 text-xl uilus-circle" style="color: white; font-size:12px;"></ion-icon>𝓟𝓻𝓸𝓯𝓲𝓵𝓮
+          </a>
+               <!-- account settings-->
+                        <a href="#"
+                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white" style="text-decoration:none;">
+                        <ion-icon name="add-circle" class="-mb-1
+                         mr-1 opacity-90 text-xl uilus-circle" style="color: white; font-size:12px;"></ion-icon> 𝓼𝓮𝓽𝓽𝓲𝓷𝓰𝓼
+                    </a>
+                        <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
+                            <ul>
+                                <li><a href="/settings"> Account setting </a> </li>
+                                <li><a href="logout"> Log Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <a href="{% url 'index' %}" class="btn btn-dark my-3"  style="font-family:serif; font-size:18px;">Go Back</a>
+            <div class="gallery"> 
+            <img src="/static/images/business.svg"  width="500" height="280" style="margin-left:25rem; margin-top:-4rem;">
+            <p style="font-size: 35px; color:rgb(28, 28, 28);margin-left:38rem;font-family: 'Bubblegum Sans', cursive;">Neighbourhood Business</p>
           </div>
-        </form>
-      </div>
-      <!-- search form end -->
-    </div>
-  </nav>
-  <div class="background"> 
-   <div class="container m-1">
-<div class="row">
-  <div class="col-md-3"><div class="card">
-   <div class="card-header" style="font-family:serif; font-size:20px">
-    Business Categories
-   </div>
-   <ul class="list-group list-group-flush">
-     <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}">All</a></li>
-     {%  for category in categories %}
-     <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
-     {% endfor %}
-     <a href="#" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px">Add Photo</a>
-   </ul>
-   </div>
-</div>
-  <div class="col-md-9">
-    <div class="row">
-   {% for photo in photos %}
-      <div class="col-md-4">
-       <div class="card my-2">
-         <img class="image-thumbail" src="{{photo.image.url}}" alt="Card image cap">
-         <div class="card-body">
-           <small style="font-family: 'Bubblegum Sans', cursive; font-size:20px">Category:{{photo.category.name}}</small>
-           <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
-         </div>
-       </div>
-      </div>
-       {% empty %}
-       <div class="image"> 
-       <img src="/static/images/404.svg" width="420" height="280" ><h3>Page Not Found😔</h3>
-      </div>
-       {% endfor %}
-      </div>
-      </div>
-  </div>
-  <footer>
-    <h3 style="margin-right: 20rem;"> Build with💖&copy; Jimmy-oss</h3>
-    </footer>
- 
-  <!-- Scripts
+            <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                  <!-- Adding a search form  -->
+                <div class="col-sm-4 col-md-4 navbar-left" style="margin-left:40rem ;">
+                  <form class="navbar-form" role="category" action="{% url 'explore' %}">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="🔍   Search laundry" name="category"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
+                      <a href="{% url 'admin:index' %}" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px;">Admin</a>
+                      <div class="input-group-btn">
+                       <!---<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>-->
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- search form end -->
+              </div>
+            </nav>
+            <div class="background"> 
+             <div class="container m-1">
+          <div class="row">
+            <div class="col-md-3"><div class="card">
+             <div class="card-header" style="font-family:serif; font-size:20px">
+              Business Categories
+             </div>
+             <ul class="list-group list-group-flush">
+               <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}">All</a></li>
+               {%  for category in categories %}
+               <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
+               {% endfor %}
+               <a href="#" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px">Add Photo</a>
+             </ul>
+             </div>
+          </div>
+            <div class="col-md-9">
+              <div class="row">
+             {% for photo in photos %}
+                <div class="col-md-4">
+                 <div class="card my-2">
+                   <img class="image-thumbail" src="{{photo.image.url}}" alt="Card image cap">
+                   <div class="card-body">
+                     <small style="font-family: 'Bubblegum Sans', cursive; font-size:20px">Category:{{photo.category.name}}</small>
+                     <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                   </div>
+                 </div>
+                </div>
+                 {% empty %}
+                 <div class="image"> 
+                 <img src="/static/images/404.svg" width="420" height="280" ><h3>Page Not Found😔</h3>
+                </div>
+                 {% endfor %}
+                </div>
+                </div>
+            </div>
+            <footer>
+              <h3> Build with💖&copy; Jimmy-oss</h3>
+              </footer>          
+ <!-- Scripts
     ================================================== -->
-    <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>  
-    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'assets/js/uikit.js' %}"></script>
-    <script src="{% static 'assets/js/simplebar.js' %}"></script>
-    <script src="{% static 'assets/js/custom.js' %}"></script>
-</body>
+     <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>  
+     <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+     <script src="{% static 'assets/js/uikit.js' %}"></script>
+     <script src="{% static 'assets/js/simplebar.js' %}"></script>
+     <script src="{% static 'assets/js/custom.js' %}"></script>
+   </body>
 </html>
