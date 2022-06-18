@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
 from itertools import chain
+import random
 
 @login_required(login_url='signin')
 def index(request):
@@ -110,11 +111,31 @@ def settings(request):
         return redirect('settings')
     return render(request, 'setting.html', {'user_profile': user_profile})
 
+@login_required(login_url='signin')
+def follow(request):
+    if request.method == 'POST':
+        follower = request.POST['follower']
+        user = request.POST['user']
+
+        if FollowersCount.objects.filter(follower=follower, user=user).first():
+            delete_follower = FollowersCount.objects.get(follower=follower, user=user)
+            delete_follower.delete()
+            return redirect('/profile/'+user)
+        else:
+            new_follower = FollowersCount.objects.create(follower=follower, user=user)
+            new_follower.save()
+            return redirect('/profile/'+user)
+    else:
+        return redirect('/')
 
 @login_required(login_url='signin')
 def explore(request):
        user_object = User.objects.get(username=request.user.username)
        user_profile = Profile.objects.get(user=user_object)
+       user_following_list = []  
+       user_following = FollowersCount.objects.filter(follower=request.user.username)
+       for users in user_following:  
+        user_following_list.append(users.user)  
        category = request.GET.get('category')
        if category == None:
             photos = Photo.objects.all()
@@ -122,7 +143,7 @@ def explore(request):
            photos = Photo.objects.filter(category__name = category)
            
        category = Category.objects.all()
-       context = {'categories':category,'photos':photos,'user_profile': user_profile}
+       context = {'categories':category,'photos':photos,'user_profile': user_profile,}
 
        return render(request, 'explore.html', context)
       
