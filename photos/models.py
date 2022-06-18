@@ -37,7 +37,6 @@ class FollowersCount(models.Model):
       
 class Photo (models.Model):
      category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,blank=True)
-     user = models.CharField(max_length=100)
      image = CloudinaryField('image')
      description = models.TextField()
      email_address = models.EmailField(max_length=150,blank=True)

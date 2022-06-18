@@ -127,14 +127,49 @@ def explore(request):
        user_object = User.objects.get(username=request.user.username)
        user_profile = Profile.objects.get(user=user_object)
        return render(request, 'explore.html',  {'user_profile': user_profile})
+
+@login_required(login_url='signin')
+def viewPhoto (request, pk):
+       photo = Photo.objects.get(id=pk)
+       return render(request,'photo.html',{'photo':photo})   
     
+@login_required(login_url='signin')
+def addPhoto (request):
+       category = Category.objects.all()
+       if request.method == 'POST':
+        user = request.user.username
+        data = request.POST
+        image = request.FILES.get('image')
+       
+        
+        if data['category'] != 'none':
+            category = Category.objects.get(id=data['category'])
+        elif data['category_new'] != '':
+            category, created = Category.objects.get_or_create(
+                 
+                name=data['category_new'])
+        else:
+            category = None
+            
+        photo = Photo.objects.create(
+                category=category,
+                 user=user,
+                description=data['description'],
+                image=image,
+                email_address=data['email_address'],
+            )
+         
+
+        return redirect('explore') 
+       context = {'categories': category}
+       return render(request, 'add.html', context) 
 
 @login_required(login_url='signin')
 def profile(request, pk):
     user_object = User.objects.get(username=pk)
     user_profile = Profile.objects.get(user=user_object)
-    user_posts = Photo.objects.filter(user=pk)
-    user_post_length = len(user_posts)
+    #user_posts = Photo.objects.filter(user=pk)
+    #user_post_length = len(user_posts)
 
     follower = request.user.username
     user = pk
@@ -151,8 +186,8 @@ def profile(request, pk):
     context = {
         'user_object': user_object,
         'user_profile': user_profile,
-        'user_posts': user_posts,
-        'user_post_length': user_post_length,
+       # 'user_posts': user_posts,
+       # 'user_post_length': user_post_length,
         'button_text': button_text,
         'user_followers': user_followers,
         'user_following': user_following,

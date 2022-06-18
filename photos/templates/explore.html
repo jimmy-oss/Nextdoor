@@ -87,7 +87,7 @@
                {%  for category in categories %}
                <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
                {% endfor %}
-               <a href="#" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px">Add Photo</a>
+               <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px">Add Photo</a>
              </ul>
              </div>
           </div>
