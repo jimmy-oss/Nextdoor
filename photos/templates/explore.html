@@ -19,9 +19,10 @@ crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
 </head>
 <body class="m-5">
-<p class="logo"><img src="/static/images/logo.png " width="80px">Nextdoor</p>
+  <a href="{% url 'index' %}" class="btn btn-dark my-3"  style="font-family:serif; font-size:18px;">Go Back</a>
   <div class="gallery"> 
-  <img src="/static/images/nextdoor.png"  width="300" height="280" style="margin-left:25rem">
+  <img src="/static/images/business.svg"  width="500" height="280" style="margin-left:25rem; margin-top:-5rem;">
+  <p style="font-size: 35px; color:rgb(28, 28, 28);margin-left:28rem;font-family: 'Bubblegum Sans', cursive;">Neighbourhood Business</p>
 </div>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -29,7 +30,7 @@ crossorigin="anonymous">
       <div class="col-sm-4 col-md-4 navbar-left" style="margin-left:40rem ;">
         <form class="navbar-form" role="category" action="{% url 'explore' %}">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="🔍   Search Travel" name="category"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
+            <input type="text" class="form-control" placeholder="🔍   Search laundry" name="category"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
             <a href="{% url 'admin:index' %}" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px;">Admin</a>
             <div class="input-group-btn">
               <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -45,7 +46,7 @@ crossorigin="anonymous">
 <div class="row">
   <div class="col-md-3"><div class="card">
    <div class="card-header" style="font-family:serif; font-size:20px">
-     Categories
+    Business Categories
    </div>
    <ul class="list-group list-group-flush">
      <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}">All</a></li>
