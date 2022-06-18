@@ -23,20 +23,22 @@
             <form action="/search" method="POST">
             {% csrf_token %}
                   <div class="left-side">
-                    <input type="text" name="username" placeholder="Search for username..">&nbsp; &nbsp;
+                    <input type="text"  style="margin-left: 7rem;" name="username" placeholder="Search for username..">&nbsp; &nbsp;
                     <button type="submit"><i class="fa fa-search fa-1x"></i></button>
             </div>
             </form>
-            <div class="right-side lg:pr-4">
+            <div class="right-side lg:pr-5" style="margin-left: 19rem;">
                <!-- profile -->
                <a href="#">
-                <img src="{{user_profile.profileimg.url}}" class="header-avatar" style="margin-right: 2rem;">
+                <img src="{{user_profile.profileimg.url}}" class="header-avatar" style="margin-right: 3rem;">
                 <a href="#"
                 class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white" style="text-decoration:none;">
                 <ion-icon name="add-circle" class="-mb-1
                  mr-1 opacity-90 text-xl uilus-circle" style="color: white; font-size:12px;"></ion-icon>𝓟𝓻𝓸𝓯𝓲𝓵𝓮
             </a>
             </a>
+            <a href="{% url 'admin:index' %}" 
+            class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white" style="font-size:18px;text-decoration:none">𝓐𝓭𝓶𝓲𝓷</a>
                <!-- account settings-->
                         <a href="#"
                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white" style="text-decoration:none;">
@@ -60,11 +62,10 @@
             <nav class="navbar navbar-inverse">
               <div class="container-fluid">
                   <!-- Adding a search form  -->
-                <div class="col-sm-4 col-md-4 navbar-left" style="margin-left:40rem ;">
+                <div class="col-sm-4 col-md-3 navbar-left" style="margin-left:30rem;">
                   <form class="navbar-form" role="category" action="{% url 'explore' %}">
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="🔍   Search laundry" name="category"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
-                      <a href="{% url 'admin:index' %}" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px;">Admin</a>
+                      <input type="text" class="form-control" placeholder="🔍   Search laundry" name="category" style="border-radius: 2px 4px 2px;"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
                       <div class="input-group-btn">
                        <!---<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>-->
                       </div>
