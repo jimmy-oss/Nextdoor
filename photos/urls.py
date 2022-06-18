@@ -8,14 +8,15 @@ urlpatterns = [
     path('signup',views.signup, name='signup'),
     path('signin',views.signin, name='signin'),
     path('settings',views.settings, name='settings'),
+    path('profile/<str:pk>',views.profile, name='profile'),
     path('logout',views.logout, name='logout'),
-    #path('settings',views.settings, name='settings'),
+  
    
     #path('photo/<str:pk>/',views.viewPhoto, name='photo'),
     #path('add',views.addPhoto, name='add'),
    # path('search', views.search, name='search'),
   #  path('profile/<str:pk>',views.profile, name='profile'),
   
-  #  path('signin',views.signin, name='signin'),
+ 
   
 ]
