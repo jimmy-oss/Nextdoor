@@ -1,0 +1,206 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/images/logo.png" type="image/x-icon">
+    <title>𝓼𝓮𝓪𝓻𝓬𝓱 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body   style="background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);">
+            <form action="search" method="POST">
+              {% csrf_token %}
+            <header style="margin-top: -23px;">
+                <div class="header_inner">
+                    <div class="left-side">
+                        <!-- Logo -->
+                        <div id="logo" class=" uk-hidden@s">
+                            <a href="/">
+                            </a>
+                        </div>
+                         <input type="text" name="username" placeholder="Search for username..">&nbsp; &nbsp;
+                                <button type="submit"><i class="fa fa-search fa-1x"></i></button>
+                    </div>
+                    <div class="right-side lg:pr-4">
+                        <!-- welcome user -->
+                        <a href="#" class="" style="color: white;">
+                            Welcome <b name="" class="" style="color: white;">{{user.username}}&nbsp; &nbsp; &nbsp;</b>
+                        </a>
+
+                         <!-- upload -->
+                        <a href="{% url 'explore' %}" 
+                            class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-1 rounded shado text-white">
+                            <ion-icon name="add-circle" class="-mb-1
+                             mr-1 opacity-90 text-xl uilus-circle" style="font-size: 16px;"></ion-icon> 𝓔𝔁𝓹𝓵𝓸𝓻𝓮
+                        </a>
+                        <!-- profile -->
+
+                        <a href="#">
+                            <img src="{{ user_profile.profileimg.url }}" class="header-avatar" alt="">
+                        </a>
+                        <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
+                            <ul>
+                                <li><a href="/settings"> Account setting </a> </li>
+                                <li><a href="/logout"> Log Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            </form>
+            <div style="margin-left: 250px; margin-right: 250px;">
+                
+                <style>
+                body{margin-top:20px;
+                background-color: #eee;
+                }
+
+                .search-result-categories>li>a {
+                    color: #b6b6b6;
+                    font-weight: 400
+                }
+
+                .search-result-categories>li>a:hover {
+                    background-color: #ddd;
+                    color: #555
+                }
+
+                .search-result-categories>li>a>.glyphicon {
+                    margin-right: 5px
+                }
+
+                .search-result-categories>li>a>.badge {
+                    float: right
+                }
+
+                .search-results-count {
+                    margin-top: 10px
+                }
+
+                .search-result-item {
+                    padding: 20px;
+                    background-color: #fff;
+                    border-radius: 4px
+                }
+
+                .search-result-item:after,
+                .search-result-item:before {
+                    content: " ";
+                    display: table
+                }
+
+                .search-result-item:after {
+                    clear: both
+                }
+
+                .search-result-item .image-link {
+                    display: block;
+                    overflow: hidden;
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px
+                }
+
+                @media (min-width:768px) {
+                    .search-result-item .image-link {
+                        display: inline-block;
+                        margin: -20px 0 -20px -20px;
+                        float: left;
+                        width: 200px
+                    }
+                }
+
+                @media (max-width:767px) {
+                    .search-result-item .image-link {
+                        max-height: 200px
+                    }
+                }
+
+                .search-result-item .image {
+                    max-width: 100%
+                }
+
+                .search-result-item .info {
+                    margin-top: 2px;
+                    font-size: 12px;
+                    color: #999
+                }
+
+                .search-result-item .description {
+                    font-size: 13px
+                }
+
+                .search-result-item+.search-result-item {
+                    margin-top: 20px
+                }
+
+                @media (min-width:768px) {
+                    .search-result-item-body {
+                        margin-left: 200px
+                    }
+                }
+
+                .search-result-item-heading {
+                    font-weight: 400
+                }
+
+                .search-result-item-heading>a {
+                    color: #555
+                }
+
+                @media (min-width:768px) {
+                    .search-result-item-heading {
+                        margin: 0
+                    }
+                }
+                </style>
+
+                <div class="container">
+                <div class="row ng-scope">
+                    <div class="col-md-3 col-md-push-9">
+                        <h4 style="color: white;">Results For <span class="fw-semi-bold"><b>{{username}}</b></span></h4>
+                        <br>
+                    </div>
+                    <div class="col-md-9 col-md-pull-3">
+                        {% for users in username_profile_list %}
+                        <section class="search-result-item">
+                            <a class="image-link" href="/profile/{{users.user}}"><img class="image" src="{{users.profileimg.url}}">
+                            </a>
+                            <div class="search-result-item-body">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <h4 class="search-result-item-heading"><a href="/profile/{{users.user}}"><b>@{{users.user}}</b></a></h4>
+                                        <p class="info">{{users.location}}</p>
+                                        <p class="description">{{users.bio}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        {% endfor %}
+                    </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!-- Scripts
+    ================================================== -->
+    <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>  
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/uikit.js' %}"></script>
+    <script src="{% static 'assets/js/simplebar.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+    <script src="{% static '../../unpkg.com/ionicons%405.2.3/dist/ionicons.js' %}"></script>
+    </body>
+</html>
