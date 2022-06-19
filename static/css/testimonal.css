@@ -58,8 +58,8 @@ html {
 	background-position: top center;
 }
 .testimonial-text {
-	font-weight: 200;
-	font-size: 20px;
+	font-weight: 300;
+	font-size: 24px;
 	line-height: 1rem;
   margin-right:2rem;
 	color: hsl(240, 13%, 17%);
@@ -102,6 +102,22 @@ html {
 	border-radius: 50px;
 	background-color: white;
 	overflow: hidden;
+}
+.btn {
+  position: absolute;
+  margin-left: 3rem;
+  margin-top: 2rem;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  padding: 15px 28px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
 .prev {
 	left: 0;
