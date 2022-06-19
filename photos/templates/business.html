@@ -11,7 +11,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
  crossorigin="anonymous">  
- <link href="{% static 'css/photo.css' %}" rel="stylesheet" type="text/css"/>
+ <link href="{% static 'css/business.css' %}" rel="stylesheet" type="text/css"/>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
  <!--Custom Js--> 
@@ -24,7 +24,7 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
       <div class="col">
         <a href="{% url 'explore' %}"  class="btn btn-dark my-3" style="font-family:serif; font-size:18px">Go back</a>
         <div style="height:70vh ;">
-          <img style="max-width:100%; max-height:100%; margin-left:12em"  src="{{photo.image.url}}" >
+          <img style="max-width:100%; max-height:100%; margin-left:12em"  src="{{business.image.url}}" >
         </div>
           <div class="skill-bars">
             <div class="bar">
@@ -59,9 +59,9 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
                 <span></span>
               </div>
             </div>
-          <p style="font-family: 'Berkshire Swash', cursive; font-size:20px;margin-top:2rem;text-align: center; margin-right:-10rem">{{photo.description}}</p>
+          <p style="font-family: 'Berkshire Swash', cursive; font-size:20px;margin-top:2rem;text-align: center; margin-right:-10rem">{{business.description}}</p>
           <p style="font-family: 'Berkshire Swash', cursive; font-size:20px;margin-top:2rem;text-align: center; margin-right:4rem"><img src="/static/images/mail.svg" width="50px" height="50px">Email Address Link</p>
-          <button class="btn btn-dark copy-btn" style="font-family:serif; font-size:18px;margin-left:22rem;margin-top:-7.2rem;" data-gallery="{{photo.email_address}}" >Copy</button>
+          <button class="btn btn-dark copy-btn" style="font-family:serif; font-size:18px;margin-left:22rem;margin-top:-7.2rem;" data-gallery="{{business.email_address}}" >Copy</button>
    
         
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -87,19 +87,19 @@
                {%  for category in categories %}
                <li class="list-group-item" style="font-family: 'Bubblegum Sans', cursive; font-size:18px"><a href="{% url 'explore' %}?category={{category.name}}">{{category.name}}</li></a>
                {% endfor %}
-               <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px">Add Photo</a>
+               <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1" style="font-family:serif; font-size:18px">Add Business</a>
              </ul>
              </div>
           </div>
             <div class="col-md-9">
               <div class="row">
-             {% for photo in photos %}
+             {% for business in businesses %}
                 <div class="col-md-4">
                  <div class="card my-2">
-                   <img class="image-thumbail" src="{{photo.image.url}}" alt="Card image cap">
+                   <img class="image-thumbail" src="{{business.image.url}}" alt="Card image cap">
                    <div class="card-body">
-                     <small style="font-family: 'Bubblegum Sans', cursive; font-size:20px">Category:{{photo.category.name}}</small>
-                     <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                     <small style="font-family: 'Bubblegum Sans', cursive; font-size:20px">Category:{{business.category.name}}</small>
+                     <a href="{% url 'business' business.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                    </div>
                  </div>
                 </div>

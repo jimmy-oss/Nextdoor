@@ -1,7 +1,7 @@
 import email
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
-from .models  import Category, Photo,Profile,FollowersCount
+from .models  import Category, Business,Profile,FollowersCount
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
@@ -141,24 +141,24 @@ def explore(request):
         
        category = request.GET.get('category')
        if category == None:
-            photos = Photo.objects.all()
+            businesses = Business.objects.all()
        else:
-           photos = Photo.objects.filter(category__name = category)
+           businesses = Business.objects.filter(category__name = category)
            
        category = Category.objects.all()
-       context = {'categories':category,'photos':photos,'user_profile': user_profile,}
+       context = {'categories':category,'businesses':businesses,'user_profile': user_profile,}
 
        return render(request, 'explore.html', context)
       
       
 
 @login_required(login_url='signin')
-def viewPhoto (request, pk):
-       photo = Photo.objects.get(id=pk)
-       return render(request,'photo.html',{'photo':photo})   
+def viewBusiness (request, pk):
+       business = Business.objects.get(id=pk)
+       return render(request,'business.html',{'business':business})   
     
 @login_required(login_url='signin')
-def addPhoto (request):
+def addBusiness (request):
        category = Category.objects.all()
        if request.method == 'POST':
         user = request.user.username
@@ -175,7 +175,7 @@ def addPhoto (request):
         else:
             category = None
             
-        photo = Photo.objects.create(
+        business = Business.objects.create(
                 category=category,
                  user=user,
                 description=data['description'],
@@ -192,7 +192,7 @@ def addPhoto (request):
 def profile(request, pk):
     user_object = User.objects.get(username=pk)
     user_profile = Profile.objects.get(user=user_object)
-    user_posts = Photo.objects.filter(user=pk)
+    user_posts = Business.objects.filter(user=pk)
     user_post_length = len(user_posts)
 
     follower = request.user.username

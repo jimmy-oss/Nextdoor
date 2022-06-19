@@ -35,7 +35,7 @@ class FollowersCount(models.Model):
     def __str__(self):
         return self.user
       
-class Photo (models.Model):
+class Business (models.Model):
      category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,blank=True)
      user = models.CharField(max_length=100)
      image = CloudinaryField('image')
