@@ -16,6 +16,10 @@ def index(request):
 def testimonial(request):
     return render(request, 'testimonial.html')
 
+@login_required(login_url='signin')
+def about(request):
+    return render(request, 'about.html')
+
 def signup(request):
 
     if request.method == 'POST':
