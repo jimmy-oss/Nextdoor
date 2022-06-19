@@ -20,6 +20,10 @@ def testimonial(request):
 def about(request):
     return render(request, 'about.html')
 
+@login_required(login_url='signin')
+def contact(request):
+    return render(request, 'contact.html')
+
 def signup(request):
 
     if request.method == 'POST':
