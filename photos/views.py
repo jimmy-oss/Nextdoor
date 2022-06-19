@@ -1,7 +1,7 @@
 import email
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
-from .models  import Category, Business,Profile,FollowersCount
+from .models  import Category, Business,Neighbourhood,FollowersCount
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.decorators import login_required
@@ -36,10 +36,10 @@ def signup(request):
                 user_login = auth.authenticate(username=username, password=password)
                 auth.login(request, user_login)
 
-                #create a Profile object for the new user
+                #create a Neighbourhood object for the new user
                 user_model = User.objects.get(username=username)
-                new_profile = Profile.objects.create(user=user_model, id_user=user_model.id)
-                new_profile.save()
+                new_neighbourhood = Neighbourhood.objects.create(user=user_model, id_user=user_model.id)
+                new_neighbourhood.save()
                 return redirect('index')
         else:
             messages.info(request, 'Password Not Matching')
@@ -73,25 +73,25 @@ def logout(request):
 
 @login_required(login_url='signin')
 def settings(request):
-    user_profile = Profile.objects.get(user=request.user)
+    user_neighbourhood = Neighbourhood.objects.get(user=request.user)
 
     if request.method == 'POST':
         
         if request.FILES.get('image') == None:
-            image = user_profile.profileimg
+            image = user_neighbourhood.profileimg
             bio = request.POST['bio']
             email_address = request.POST['email_address']
             phone_number = request.POST['phone_number']
             location = request.POST['location']
             neighbour_name = request.POST['neighbour_name']
 
-            user_profile.profileimg = image
-            user_profile.bio = bio
-            user_profile.location = location
-            user_profile.email_address = email_address
-            user_profile.neighbour_name = neighbour_name
-            user_profile.phone_number = phone_number
-            user_profile.save()
+            user_neighbourhood.profileimg = image
+            user_neighbourhood.bio = bio
+            user_neighbourhood.location = location
+            user_neighbourhood.email_address = email_address
+            user_neighbourhood.neighbour_name = neighbour_name
+            user_neighbourhood.phone_number = phone_number
+            user_neighbourhood.save()
         if request.FILES.get('image') != None:
             image = request.FILES.get('image')
             bio = request.POST['bio']
@@ -100,16 +100,16 @@ def settings(request):
             location = request.POST['location']
             neighbour_name = request.POST['neighbour_name']
 
-            user_profile.profileimg = image
-            user_profile.bio = bio
-            user_profile.location = location
-            user_profile.email_address = email_address
-            user_profile.phone_number = phone_number
-            user_profile.neighbour_name = neighbour_name
-            user_profile.save()
+            user_neighbourhood.profileimg = image
+            user_neighbourhood.bio = bio
+            user_neighbourhood.location = location
+            user_neighbourhood.email_address = email_address
+            user_neighbourhood.phone_number = phone_number
+            user_neighbourhood.neighbour_name = neighbour_name
+            user_neighbourhood.save()
         
         return redirect('settings')
-    return render(request, 'setting.html', {'user_profile': user_profile})
+    return render(request, 'setting.html', {'user_neighbourhood': user_neighbourhood})
 
 @login_required(login_url='signin')
 def follow(request):
@@ -120,18 +120,18 @@ def follow(request):
         if FollowersCount.objects.filter(follower=follower, user=user).first():
             delete_follower = FollowersCount.objects.get(follower=follower, user=user)
             delete_follower.delete()
-            return redirect('/profile/'+user)
+            return redirect('/neighbourhood/'+user)
         else:
             new_follower = FollowersCount.objects.create(follower=follower, user=user)
             new_follower.save()
-            return redirect('/profile/'+user)
+            return redirect('/neighbourhood/'+user)
     else:
         return redirect('/')
 
 @login_required(login_url='signin')
 def explore(request):
        user_object = User.objects.get(username=request.user.username)
-       user_profile = Profile.objects.get(user=user_object)
+       user_neighbourhood = Neighbourhood.objects.get(user=user_object)
        
        user_following_list = []  
        user_following = FollowersCount.objects.filter(follower=request.user.username)
@@ -146,7 +146,7 @@ def explore(request):
            businesses = Business.objects.filter(category__name = category)
            
        category = Category.objects.all()
-       context = {'categories':category,'businesses':businesses,'user_profile': user_profile,}
+       context = {'categories':category,'businesses':businesses,'user_neighbourhood': user_neighbourhood,}
 
        return render(request, 'explore.html', context)
       
@@ -189,9 +189,9 @@ def addBusiness (request):
        return render(request, 'add.html', context) 
 
 @login_required(login_url='signin')
-def profile(request, pk):
+def neighbourhood(request, pk):
     user_object = User.objects.get(username=pk)
-    user_profile = Profile.objects.get(user=user_object)
+    user_neighbourhood = Neighbourhood.objects.get(user=user_object)
     user_posts = Business.objects.filter(user=pk)
     user_post_length = len(user_posts)
 
@@ -209,7 +209,7 @@ def profile(request, pk):
 
     context = {
         'user_object': user_object,
-        'user_profile': user_profile,
+        'user_neighbourhood': user_neighbourhood,
         'user_posts': user_posts,
         'user_post_length': user_post_length,
         'button_text': button_text,
@@ -217,29 +217,29 @@ def profile(request, pk):
         'user_following': user_following,
         
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'neighbourhood.html', context)
 
 @login_required(login_url='signin')
 def search(request):
     user_object = User.objects.get(username=request.user.username)
-    user_profile = Profile.objects.get(user=user_object)
+    user_neighbourhood = Neighbourhood.objects.get(user=user_object)
 
     if request.method == 'POST':
         username = request.POST['username']
         username_object = User.objects.filter(username__icontains=username)
 
-        username_profile = []
-        username_profile_list = []
+        username_neighbourhood = []
+        username_neighbourhood_list = []
 
         for users in username_object:
-            username_profile.append(users.id)
+            username_neighbourhood.append(users.id)
 
-        for ids in username_profile:
-            profile_lists = Profile.objects.filter(id_user=ids)
-            username_profile_list.append(profile_lists)
+        for ids in username_neighbourhood:
+            neighbourhood_lists = Neighbourhood.objects.filter(id_user=ids)
+            username_neighbourhood_list.append(neighbourhood_lists)
         
-        username_profile_list = list(chain(*username_profile_list))
-    return render(request, 'search.html', {'user_profile': user_profile, 'username_profile_list': username_profile_list})
+        username_neighbourhood_list = list(chain(*username_neighbourhood_list))
+    return render(request, 'search.html', {'user_neighbourhood': user_neighbourhood, 'username_neighbourhood_list': username_neighbourhood_list})
  
  
 

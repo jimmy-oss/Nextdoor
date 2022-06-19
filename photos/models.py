@@ -15,7 +15,7 @@ class Category (models.Model):
 def __str__ (self):
       return self.name
 
-class Profile(models.Model):
+class Neighbourhood(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='profile')
     id_user = models.IntegerField()
     bio = models.TextField(blank=True)

@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="/static/images/logo.png" type="image/x-icon">
-	<title>𝓅𝓇𝑜𝒻𝒾𝓁𝑒 - {{user_profile.user.username}}</title>
+	<title>𝓅𝓇𝑜𝒻𝒾𝓁𝑒 - {{user_neighbourhood.user.username}}</title>
   
     <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -59,7 +59,7 @@
 						<div class="col-lg-2 col-sm-3">
 							<div class="user-avatar">
 								<figure>
-									<img src="{{user_profile.profileimg.url}}" style="height: 180px; width: 200px; " alt="">
+									<img src="{{user_neighbourhood.profileimg.url}}" style="height: 180px; width: 200px; " alt="">
 								</figure>
 							</div>
 						</div>
@@ -67,16 +67,16 @@
 							<div class="timeline-info"style="background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);">
 								<ul>
 									<li class="admin-name">
-									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 27px;"><b>@{{user_profile.user.username}}</b></h5>
+									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 27px;"><b>@{{user_neighbourhood.user.username}}</b></h5>
 									</li>
                   <li class="admin-name">
-									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px;"><b>{{user_profile.email_address }}</b></h5>
+									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px;"><b>{{user_neighbourhood.email_address }}</b></h5>
 									</li>
                   <li class="admin-name">
-									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px; margin-left:3rem"><b>{{user_profile.location }}</b></h5>
+									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px; margin-left:3rem"><b>{{user_neighbourhood.location }}</b></h5>
 									</li>
                   <li class="admin-name">
-									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px; margin-left:-2rem "><b>{{user_profile.neighbour_name}}</b></h5>
+									  <h5 style="color: white;white-space: nowrap; width: 110px; font-size: 20px; margin-left:-2rem "><b>{{user_neighbourhood.neighbour_name}}</b></h5>
 									</li>
 								</ul>
 							</div>
@@ -87,7 +87,7 @@
 		</section>
 		<section>
 			<div class="bio" style="color: white; font-family: 'Pacifico', cursive; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);font-size:18px">
-					{{user_profile.bio}}
+					{{user_neighbourhood.bio}}
 			</div>
 		</section>
 	<section>

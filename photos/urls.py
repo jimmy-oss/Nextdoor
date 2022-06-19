@@ -12,7 +12,7 @@ urlpatterns = [
     path('signup',views.signup, name='signup'),
     path('signin',views.signin, name='signin'),
     path('settings',views.settings, name='settings'),
-    path('profile/<str:pk>',views.profile, name='profile'),
+    path('neighbourhood/<str:pk>',views.neighbourhood, name='neighbourhood'),
     path('logout',views.logout, name='logout'),
   
 ]

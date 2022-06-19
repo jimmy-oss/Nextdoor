@@ -30,16 +30,16 @@
                <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">
                     <div class="col-span-2">
                         <label for=""> Profile Image</label>
-                        <img width="100" height="100" src="{{user_profile.profileimg.url}}" />
+                        <img width="100" height="100" src="{{user_neighbourhood.profileimg.url}}" />
                         <input type="file" name="image" value="" class="shadow-none bg-gray-80">
                     </div>
                     <div class="col-span-2">
                         <label for="about" required >Bio</label>  
-                        <textarea  id="about" name="bio" rows="3"  class="shadow-none bg-gray-100"style="border: 1px solid #d3d5d8 !important; ">{{user_profile.bio}}</textarea>
+                        <textarea  id="about" name="bio" rows="3"  class="shadow-none bg-gray-100"style="border: 1px solid #d3d5d8 !important; ">{{user_neighbourhood.bio}}</textarea>
                     </div> 
                     <div class="col-span-2">
                         <label for="email" required>Email</label>  
-                        <input  type="about" required  name="email_address" value="{{user_profile.email_address}} "  class="shadow-none bg-gray-100"style="border: 1px solid #d3d5d8 !important; " > 
+                        <input  type="about" required  name="email_address" value="{{user_neighbourhood.email_address}} "  class="shadow-none bg-gray-100"style="border: 1px solid #d3d5d8 !important; " > 
                     </div> 
                     <div class="col-span-2">
                       <label for="about">Emergency Contacts</label>  
@@ -52,11 +52,11 @@
                   </div> 
                     <div class="col-span-2">
                         <label for="location"> Location</label>
-                        <input  required type="text" name="location" value="{{user_profile.location}}" class="shadow-none bg-gray-100" style="border: 1px solid #d3d5d8 !important; ">
+                        <input  required type="text" name="location" value="{{user_neighbourhood.location}}" class="shadow-none bg-gray-100" style="border: 1px solid #d3d5d8 !important; ">
                     </div>
                     <div class="col-span-2">
                       <label for="neighbourhood_name"  required> Neighbourhood Name</label>
-                      <input required  type="text" name="neighbour_name" value="{{user_profile.neighbour_name}}" class="shadow-none bg-gray-100" style="border: 1px solid #d3d5d8 !important; ">
+                      <input required  type="text" name="neighbour_name" value="{{user_neighbourhood.neighbour_name}}" class="shadow-none bg-gray-100" style="border: 1px solid #d3d5d8 !important; ">
                   </div>
                </div> 
                <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">

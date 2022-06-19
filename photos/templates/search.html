@@ -42,10 +42,10 @@
                             <ion-icon name="add-circle" class="-mb-1
                              mr-1 opacity-90 text-xl uilus-circle" style="font-size: 16px;"></ion-icon> 𝓔𝔁𝓹𝓵𝓸𝓻𝓮
                         </a>
-                        <!-- profile -->
+                        <!-- neighbourhood -->
 
                         <a href="#">
-                            <img src="{{ user_profile.profileimg.url }}" class="header-avatar" alt="">
+                            <img src="{{ user_neighbourhood.profileimg.url }}" class="header-avatar" alt="">
                         </a>
                         <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
                             <ul>
@@ -170,14 +170,14 @@
                         <br>
                     </div>
                     <div class="col-md-9 col-md-pull-3">
-                        {% for users in username_profile_list %}
+                        {% for users in username_neighbourhood_list %}
                         <section class="search-result-item">
-                            <a class="image-link" href="/profile/{{users.user}}"><img class="image" src="{{users.profileimg.url}}">
+                            <a class="image-link" href="/neighbourhood/{{users.user}}"><img class="image" src="{{users.profileimg.url}}">
                             </a>
                             <div class="search-result-item-body">
                                 <div class="row">
                                     <div class="col-sm-9">
-                                        <h4 class="search-result-item-heading"><a href="/profile/{{users.user}}"><b>@{{users.user}}</b></a></h4>
+                                        <h4 class="search-result-item-heading"><a href="/neighbourhood/{{users.user}}"><b>@{{users.user}}</b></a></h4>
                                         <p class="info">{{users.location}}</p>
                                         <p class="description">{{users.bio}}</p>
                                     </div>
