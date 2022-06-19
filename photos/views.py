@@ -12,6 +12,10 @@ import random
 def index(request):
     return render(request, 'index.html')
 
+@login_required(login_url='signin')
+def testimonial(request):
+    return render(request, 'testimonial.html')
+
 def signup(request):
 
     if request.method == 'POST':
