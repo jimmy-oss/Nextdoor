@@ -59,7 +59,7 @@ html {
 }
 .testimonial-text {
 	font-weight: 200;
-	font-size: 25px;
+	font-size: 20px;
 	line-height: 1rem;
   margin-right:2rem;
 	color: hsl(240, 13%, 17%);
@@ -71,7 +71,7 @@ html {
 	font-weight: 700;
 }
 .author-text span {
-	color: hsl(0, 0%, 45%);
+	color: hsl(0, 0%, 39%);
 	font-weight: 500;
 	display: block;
 }
