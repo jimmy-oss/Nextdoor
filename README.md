@@ -22,7 +22,8 @@ The First impression which makes this web application stand out from the rest is
 - As user can Find a list of different businesses in their current neighborhood.
 - A user can Find Contact Information for the health department and Police authorities near my neighborhood.
 - A user can Create Posts that will be visible to everyone in my neighborhood.
-- A user can Change My neighborhood when I decide to move out.
+- A user can Change their neighborhood location when they decide to move out.
+- A user can Follow and Unfollow their neighborhood friends.
 </p>
 
 # INSTALLATION PROCESS ✨
