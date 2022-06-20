@@ -1,4 +1,7 @@
 import email
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from .models  import Category, Business,Neighbourhood,FollowersCount
@@ -53,6 +56,7 @@ def signup(request):
                 new_neighbourhood = Neighbourhood.objects.create(user=user_model, id_user=user_model.id)
                 new_neighbourhood.save()
                 return redirect('index')
+                 
         else:
             messages.info(request, 'Password Not Matching')
             return redirect('signup')
