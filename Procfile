@@ -1,1 +1,1 @@
-web: gunicorn nextdoor.wsgi --log-file
+web: gunicorn nextdoor.wsgi --log-file=-
