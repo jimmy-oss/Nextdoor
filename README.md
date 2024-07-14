@@ -1,4 +1,4 @@
-# 𝒩𝑒𝓍𝓉𝒹𝑜𝑜𝓇💞
+# Nextdoor💞
 
 ![Screen Shot 2022-06-20 at 06 32 13](https://user-images.githubusercontent.com/62022158/174520722-84b6ae1a-287a-47db-a1f6-5e8bae39aeae.png)
 
@@ -43,9 +43,9 @@ Create an `.env` and add the following.
 
 ```
 SECRET_KEY='<Secret_key>'
-DBNAME='<DbName>'
-USER='<Username>'
-PASSWORD='<password>'
+DB_NAME='<DbName>'
+DB_USER='<Username>'
+DB_PASSWORD='<password>'
 DEBUG=True
 DB_HOST='127.0.0.1'
 MODE='dev'
